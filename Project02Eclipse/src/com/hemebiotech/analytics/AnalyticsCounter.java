@@ -14,7 +14,10 @@ public class AnalyticsCounter {
 		// get symptoms
 		listOfSymptoms = reader.GetSymptoms();
 		
-		System.out.println("Symptoms: " + listOfSymptoms);
+		ISymptomWriter writer = new WriteSymptomsInFile("result.out");
+		// write symptoms to file
+		writer.writeSymptoms(listOfSymptoms);
+		
 		
 		
 		// next generate output

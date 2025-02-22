@@ -44,7 +44,7 @@ public class ReadSymptomDataFromFile implements ISymptomsWithCountReader {
 				}
 				reader.close();
 			}  catch (FileNotFoundException e) {
-				System.out.println("Le fichier symptoms.txt n'existe pas." + e);
+				System.out.println("Le fichier symptoms.txt n'existe pas.");
 			} catch (IOException e) {
 				System.out.println("Impossible de lire le fichier symptoms.txt.");
 			}
