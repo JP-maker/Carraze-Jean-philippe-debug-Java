@@ -1,32 +1,49 @@
 package com.hemebiotech.analytics;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class AnalyticsCounter {		
+public class AnalyticsCounter {	
 	
-	public static void main(String args[]) throws Exception {
-
-		Map<String, Integer> listOfSymptoms = new HashMap<String, Integer>();
-		Map<String, Integer> listOfSymptomsSorted = new HashMap<String, Integer>();
-		
-		// read symptoms from file
-		ISymptomsWithCountReader reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
-		// get symptoms
-		listOfSymptoms = reader.GetSymptoms();
-		
-		// sort symptoms
-		listOfSymptomsSorted = sortSymptoms(listOfSymptoms);
-		
-		ISymptomWriter writer = new WriteSymptomsInFile("result.out");
-		// write symptoms to file
-		writer.writeSymptoms(listOfSymptomsSorted);
+	private ISymptomsWithCountReader reader;
+	private ISymptomWriter writer;
+	
+	/**
+	 * Constructor
+	 * @param reader
+	 * @param writer
+	 * @throws Exception
+	 */
+	public AnalyticsCounter(ISymptomsWithCountReader reader, ISymptomWriter writer) throws Exception {
+		this.reader = reader;
+		this.writer = writer;
 	}
 	
-	public static Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
-		// Sort with TreeMap
-        Map<String, Integer> sortedSymptoms = new TreeMap<>(symptoms);
-		return sortedSymptoms;
+	/**
+	 * Get symptoms and their count
+	 * @return Map<String, Integer>
+	 * @throws Exception
+	 */
+	public Map<String, Integer> GetSymptomsAndCount() throws Exception {
+		return this.reader.GetSymptomsAndCount();
+	}
+	
+	/**
+	 * Sort symptoms
+	 * @param symptoms
+	 * @return Map<String, Integer>
+	 */
+	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+		return new TreeMap<>(symptoms);
+	}
+	
+	/**
+	 * Write symptoms to file
+	 * @param listOfSymptomsSorted
+	 * @return boolean
+	 * @throws Exception
+	 */
+	public boolean writeSymtpoms(Map<String, Integer> listOfSymptomsSorted) throws Exception {
+		return this.writer.writeSymptoms(listOfSymptomsSorted);
 	}
 }

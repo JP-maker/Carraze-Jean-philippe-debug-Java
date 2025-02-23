@@ -15,5 +15,5 @@ public interface ISymptomWriter {
 	 * Write the symptoms in a file
 	 * @param symptoms
 	 */
-	void writeSymptoms(Map<String, Integer> symptoms);
+	boolean writeSymptoms(Map<String, Integer> symptoms);
 }

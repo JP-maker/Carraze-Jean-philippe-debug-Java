@@ -25,7 +25,7 @@ public class ReadSymptomDataFromFile implements ISymptomsWithCountReader {
 	}
 	
 	@Override
-	public Map<String, Integer> GetSymptoms() {
+	public Map<String, Integer> GetSymptomsAndCount() {
 		Map<String, Integer> result = new HashMap<String, Integer>();
 		
 		if (filepath != null) {

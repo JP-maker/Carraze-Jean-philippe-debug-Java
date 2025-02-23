@@ -21,7 +21,8 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 	 * Write the symptoms in a file
 	 * @param symptoms
 	 */
-	public void writeSymptoms(Map<String, Integer> symptoms) {
+	public boolean writeSymptoms(Map<String, Integer> symptoms) {
+		boolean success = false;
 		if (filepath != null) {
 			try {
 				FileWriter writer = new FileWriter (filepath);
@@ -30,11 +31,13 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 					writer.write(key + ": " + symptoms.get(key) + "\n");
 				}
 				writer.close();
+				success = true;
 			} catch (FileNotFoundException e) {
 				System.out.println("Le fichier symptoms.txt n'existe pas.");
 			} catch (IOException e) {
 				System.out.println("Impossible d'écrire dans le fichier " + filepath);
 			}
-		}	
+		}
+		return success;
 	}
 }
