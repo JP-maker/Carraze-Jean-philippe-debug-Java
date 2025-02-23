@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Simple brute force implementation
+ * Read symptoms from a file and count the number of occurrences of each symptom
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomsWithCountReader {
@@ -17,13 +17,17 @@ public class ReadSymptomDataFromFile implements ISymptomsWithCountReader {
 	private String filepath;
 	
 	/**
-	 * 
+	 * Constructor
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 */
 	public ReadSymptomDataFromFile (String filepath) {
 		this.filepath = filepath;
 	}
 	
+	/**
+	 * Read symptoms from a file and count the number of occurrences of each symptom
+	 * @return Map<String, Integer> Symptoms and their count
+	 */
 	@Override
 	public Map<String, Integer> GetSymptomsAndCount() {
 		Map<String, Integer> result = new HashMap<String, Integer>();
@@ -55,8 +59,8 @@ public class ReadSymptomDataFromFile implements ISymptomsWithCountReader {
 	
 	/**
 	 * Check if a symptom is already in the list
-	 * @param symptoms
-	 * @param symptom
+	 * @param symptoms Symptoms and their count
+	 * @param symptom Symptom to check
 	 * @return true if the symptom is in the list, false otherwise
 	 */
 	private Boolean isSymptomInList(Map<String, Integer> symptoms, String symptom) {

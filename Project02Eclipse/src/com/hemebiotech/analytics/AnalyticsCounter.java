@@ -3,6 +3,9 @@ package com.hemebiotech.analytics;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * This class is used to count the number of occurrences of each symptom, sorting and write them to a file.
+ */
 public class AnalyticsCounter {	
 	
 	private ISymptomsWithCountReader reader;
@@ -10,8 +13,8 @@ public class AnalyticsCounter {
 	
 	/**
 	 * Constructor
-	 * @param reader
-	 * @param writer
+	 * @param reader Interface to read symptoms
+	 * @param writer Interface to write symptoms
 	 * @throws Exception
 	 */
 	public AnalyticsCounter(ISymptomsWithCountReader reader, ISymptomWriter writer) throws Exception {
@@ -21,7 +24,7 @@ public class AnalyticsCounter {
 	
 	/**
 	 * Get symptoms and their count
-	 * @return Map<String, Integer>
+	 * @return Map<String, Integer> Symptoms and their count
 	 * @throws Exception
 	 */
 	public Map<String, Integer> GetSymptomsAndCount() throws Exception {
@@ -30,7 +33,7 @@ public class AnalyticsCounter {
 	
 	/**
 	 * Sort symptoms
-	 * @param symptoms
+	 * @param symptoms Symptoms to sort
 	 * @return Map<String, Integer>
 	 */
 	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
@@ -39,8 +42,8 @@ public class AnalyticsCounter {
 	
 	/**
 	 * Write symptoms to file
-	 * @param listOfSymptomsSorted
-	 * @return boolean
+	 * @param listOfSymptomsSorted Symptoms sorted to write to file
+	 * @return boolean True if the symptoms are written to the file, false otherwise
 	 * @throws Exception
 	 */
 	public boolean writeSymtpoms(Map<String, Integer> listOfSymptomsSorted) throws Exception {

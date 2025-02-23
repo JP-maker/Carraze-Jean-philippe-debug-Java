@@ -6,11 +6,15 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Write the symptoms in a file
+ */
 public class WriteSymptomsInFile implements ISymptomWriter {
 	
 	private String filepath;
+	
 	/**
-	 * 
+	 * Constructor
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 */
 	public WriteSymptomsInFile (String filepath) {
@@ -19,7 +23,7 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 	
 	/**
 	 * Write the symptoms in a file
-	 * @param symptoms
+	 * @param symptoms Symptoms to write
 	 */
 	public boolean writeSymptoms(Map<String, Integer> symptoms) {
 		boolean success = false;
