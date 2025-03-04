@@ -36,8 +36,6 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 				}
 				writer.close();
 				success = true;
-			} catch (FileNotFoundException e) {
-				System.out.println("Le fichier symptoms.txt n'existe pas.");
 			} catch (IOException e) {
 				System.out.println("Impossible d'écrire dans le fichier " + filepath);
 			}

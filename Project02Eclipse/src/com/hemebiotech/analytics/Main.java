@@ -6,7 +6,7 @@ public class Main {
 	 * Main method
 	 * @param args
 	 */
-	private static String FILE_SYMPTOMS_READER = "Project02Eclipse/symptoms.txt";
+	private static String FILE_SYMPTOMS_READER = "./symptoms.txt";
 	private static String FILE_RESULT_PATH = "result.out";
 
 	public static void main(String[] args) {
